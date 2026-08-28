@@ -1,0 +1,4 @@
+package com.nilesh.commerce.user;
+import jakarta.validation.Valid; import jakarta.validation.constraints.*; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/v1/users") class UserController { private final Map<String,UserResponse> users=new HashMap<>(); @PostMapping @ResponseStatus(HttpStatus.CREATED) UserResponse register(@Valid @RequestBody RegisterUserRequest r){String id=UUID.randomUUID().toString(); UserResponse user=new UserResponse(id,r.name(),r.email());users.put(id,user);return user;} @GetMapping("/{id}") UserResponse profile(@PathVariable String id){if(!users.containsKey(id))throw new NoSuchElementException("User not found");return users.get(id);} }
+record RegisterUserRequest(@NotBlank String name,@Email String email,@Size(min=8) String password){} record UserResponse(String id,String name,String email){}

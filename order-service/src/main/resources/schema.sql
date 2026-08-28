@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS purchase_orders (id varchar(36) PRIMARY KEY, customer_id varchar(255) NOT NULL, product_id varchar(36) NOT NULL, quantity integer NOT NULL, total_amount numeric(12,2) NOT NULL, status varchar(32) NOT NULL);

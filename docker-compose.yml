@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment: { POSTGRES_USER: commerce, POSTGRES_PASSWORD: commerce, POSTGRES_DB: catalog_db }
+    ports: ["5432:5432"]
+    volumes: ["./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro"]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U commerce"], interval: 5s, timeout: 5s, retries: 10 }
+  catalog-service:
+    build: { context: ., args: { MODULE: catalog-service } }
+    environment: { DATABASE_URL: jdbc:postgresql://postgres:5432/catalog_db }
+    depends_on: { postgres: { condition: service_healthy } }
+  order-service:
+    build: { context: ., args: { MODULE: order-service } }
+    environment: { DATABASE_URL: jdbc:postgresql://postgres:5432/order_db }
+    depends_on: { postgres: { condition: service_healthy } }
+  api-gateway:
+    build: { context: ., args: { MODULE: api-gateway } }
+    environment: { CATALOG_URL: http://catalog-service:8081, ORDER_URL: http://order-service:8082 }
+    ports: ["8080:8080"]
+    depends_on: [catalog-service, order-service]

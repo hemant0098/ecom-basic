@@ -1,0 +1,4 @@
+package com.nilesh.commerce.product;
+import jakarta.validation.Valid; import jakarta.validation.constraints.*; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*; import java.math.BigDecimal; import java.util.List;
+@RestController @RequestMapping("/api/v1/products") class ProductController { private final ProductService service; ProductController(ProductService service){this.service=service;} @PostMapping @ResponseStatus(HttpStatus.CREATED) ProductResponse create(@Valid @RequestBody CreateProductRequest request){return service.create(request);} @GetMapping List<ProductResponse> all(){return service.findAll();} @GetMapping("/{id}") ProductResponse one(@PathVariable String id){return service.findById(id);} }
+record ProductRequest(@NotBlank String name,@NotNull @Positive BigDecimal price,@PositiveOrZero int inventory){}

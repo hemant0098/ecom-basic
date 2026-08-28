@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_db
+    username: commerce
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  sql:
+    init:
+      mode: always
