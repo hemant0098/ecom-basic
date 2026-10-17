@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: discovery-server
+  namespace: ecom-jenkins
+spec:
+  selector:
+    app: discovery-server
+  clusterType: nodePort
+  ports:
+  - port: 8761
+    targetPort: 8761
+    nodePort: 30000

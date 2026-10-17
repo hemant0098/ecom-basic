@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ecom-postgres
+  namespace: ecom-jenkins
+
+spec:
+  serviceName: ecom-postgres
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: ecom-postgres
+
+  template:
+    metadata:
+      labels:
+        app: ecom-postgres
+
+    spec:
+      containers:
+        - name: ecom-postgres
+          image: postgres:17
+
+          ports:
+            - containerPort: 5432
+
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: root
+            - name: POSTGRES_DB
+              value: catalog_db
+
+          volumeMounts:
+            - name: ecom-postgres
+              mountPath: /var/lib/postgresql/data
+
+  volumeClaimTemplates:
+    - metadata:
+        name: ecom-postgres
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: standard
+        resources:
+          requests:
+            storage: 1Gi

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discovery-server
+  namespace: ecom-jenkins
+  
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: discovery-server
+  template:
+    metadata:
+      labels:
+        app: discovery-server
+    spec:
+      containers:
+        - name: ecom-discovery-server
+          image: hemantdevgan/discovery-server:v1
+          ports:
+          - name: discovery-server
+            contanerPort: 8761
+           

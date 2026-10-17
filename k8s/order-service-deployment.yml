@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: ecom-jenkins
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    spec:
+      labels:
+        app: order-service
+      containers:
+        - name: ecom-order-service
+          image: hemantdevgan/order-service:v1
+          ports:
+            - name: order-service
+              containerPort: 8084
+          env:
+          - name: EUREKA_URL
+            value: "http://ecom-euraka:8761/eureka/"
+        

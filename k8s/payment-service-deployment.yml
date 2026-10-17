@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: ecom-jenkins
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    spec:
+      labels:
+        app: payment-service
+      containers:
+        - name: ecom-payment-service
+          image: hemantdevgan/orpaymentder-service:v1
+          ports:
+            - name: payment-service
+              containerPort: 8084
+          env:
+          - name: DATABASE_URL
+            value: "jdbc:postgresql://ecom-postgres:5432/order_db"
+          - name: DATABASE_USERNAME
+            value: "postgres" 
+          - name: DATABASE_PASSWORD
+            value: "root" 

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  namespace: ecom-jenkins
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    spec:
+      labels:
+        app: product-service
+      containers:
+        - name: ecom-product-service
+          image: hemantdevgan/product-service:v1
+          ports:
+            - name: product-service
+              containerPort: 8083
+          env:
+          - name: DATABASE_URL
+            value: "jdbc:postgresql://ecom-postgres:5432/order_db"
+          - name: DATABASE_USERNAME
+            value: "postgres" 
+          - name: DATABASE_PASSWORD
+            value: "root" 
+          - name: EUREKA_URL
+            value: "http://ecom-euraka:8761/eureka/"

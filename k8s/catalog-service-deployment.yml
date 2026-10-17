@@ -1,0 +1,33 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-service
+  namespace: ecom-jenkins
+  labels:
+    app: catalog-service
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: catalog-service
+
+  template:
+    metadata:
+      labels:
+        app: catalog-service
+    spec:
+      containers:
+        - name: ecom-catalog-service
+          image: hemantdevgan/catalog-service:v1
+          ports:
+            - name: catalog-service
+              containerPort: 8081
+          env:
+          - name: DATABASE_URL 
+            value: "jdbc:postgresql://ecom-postgres:5432/catalog_db"
+          - name: DATABASE_USERNAME 
+            value: "postgres"
+          - name: DATABASE_PASSWORD 
+            value: "root"
