@@ -13,7 +13,6 @@ pipeline {
                 echo 'Building images'
 
                 sh 'docker build -f api-gateway/Dockerfile -t api-gateway:v1.0 .'
-                sh 'docker build -f config-server/Dockerfile -t ecom-config-server:v1.0 .'
                 sh 'docker build -f discovery-server/Dockerfile -t ecom-discovery-server:v1.0 .'
                 sh 'docker build -f catalog-service/Dockerfile -t ecom-catalog-service:v1.0 .'
                 sh 'docker build -f notification-service/Dockerfile -t ecom-notification-service:v1.0 .'
@@ -29,7 +28,6 @@ pipeline {
                 echo 'Tagging images'
 
                 sh 'docker tag api-gateway:v1.0 $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
-                sh 'docker tag ecom-config-server:v1.0 $DOCKER_USERNAME/config-server:$IMAGE_TAG'
                 sh 'docker tag ecom-discovery-server:v1.0 $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
                 sh 'docker tag ecom-catalog-service:v1.0 $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
                 sh 'docker tag ecom-notification-service:v1.0 $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
@@ -62,7 +60,6 @@ pipeline {
                 echo 'Pushing images to Docker Hub'
 
                 sh 'docker push $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
-                sh 'docker push $DOCKER_USERNAME/config-server:$IMAGE_TAG'
                 sh 'docker push $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
                 sh 'docker push $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
                 sh 'docker push $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
@@ -86,7 +83,6 @@ pipeline {
             steps {
                 echo 'Deploying service deployments'
 
-                sh 'kubectl apply -f k8s/config-server-deployment.yml'
                 sh 'kubectl apply -f k8s/discovery-server-deployment.yml'
                 sh 'kubectl apply -f k8s/api-gateway-deployment.yml'
                 sh 'kubectl apply -f k8s/catalog-service-deployment.yml'
@@ -98,7 +94,6 @@ pipeline {
 
                 echo 'Deploying services'
 
-                sh 'kubectl apply -f k8s/config-server-service.yml'
                 sh 'kubectl apply -f k8s/discovery-server-service.yml'
                 sh 'kubectl apply -f k8s/api-gateway-service.yml'
                 sh 'kubectl apply -f k8s/catalog-service.yml'
