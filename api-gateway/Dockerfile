@@ -5,6 +5,6 @@ RUN mvn -pl api-gateway -am clean package -DskipTests
 
 FROM eclipse-temurin:25-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/api-gateway/target/*.jar app.jar
 EXPOSE 8087
 ENTRYPOINT ["java", "-jar", "app.jar"]
