@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/order_db
-    username: commerce
-    password: root
+    username: ${DATABASE_USERNAME:commerce}
+    password: ${DATABASE_PASSWORD:root}
 
   jpa:
     hibernate:
@@ -11,3 +11,6 @@ spring:
   sql:
     init:
       mode: always
+
+server:
+  port: 8086

@@ -1,35 +1,33 @@
+spring:
+  application:
+    name: user-service
 
-  spring:
-    application:
-      name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_db
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:root}
+    driver-class-name: org.postgresql.Driver
 
-    datasource:
-      url: jdbc:postgresql://localhost:5432/user_db
-      username: postgres
-      password: root
-      driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
 
-    jpa:
-      hibernate:
-        ddl-auto: update
-      open-in-view: false
-      show-sql: true
+  sql:
+    init:
+      mode: never
 
-    sql:
-      init:
-        mode: never
+server:
+  port: 8082
 
-  server:
-    port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
 
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: health,info
-
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka/
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

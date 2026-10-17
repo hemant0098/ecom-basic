@@ -1,0 +1,81 @@
+services:
+ config-server
+ api-gateway
+ discovery-service
+ catalog-service
+ notification-service
+ order-service
+ payment-service
+ product-service
+ user-service
+
+database:
+ postgressql
+
+tech-stack:
+ Java: 25
+ Spring Boot: 3.5
+ Spring Cloud
+ REST APIs
+
+environments:
+1. database:
+    server-port: 5432
+    name: ecom-postgres
+    POSTGRES_USERNAME: postgres
+    POSTGRES_PASSWORD: root
+    POSTGRES_DB: catalog_db
+    
+ Databases:
+    catalog_db:
+    order_db:
+    product_db:
+    user_db:  
+
+2. api-gateway:
+    server-port: 8087 
+    CONFIG_SERVER_URL: http://ecom-config-server:8888 // optional
+    EUREKA_URL: http://ecom-euraka:8761/eureka/
+
+3. discovery-service:
+    server-port: 8761
+
+4. catalog-service:
+    server-port: 8081
+    DATABASE_URL:jdbc: postgresql://ecom-postgres:5432/catalog_db
+    DATABASE_USERNAME: commerce
+    DATABASE_PASSWORD: commerce123
+
+5. notification-service:
+    server-port: 8085
+    KAFKA_BOOTSTRAP_SERVERS: ecom-kafka:9092
+    EUREKA_URL: http://ecom-euraka:8761/eureka/
+
+6. order-service:
+    server-port: 8086
+    DATABASE_URL:jdbc: postgresql://ecom-postgres:5432/order_db
+    DATABASE_USERNAME: commerce
+    DATABASE_PASSWORD: root
+
+7. payment-service:
+    server-port: 8084
+    EUREKA_URL: http://ecom-euraka:8761/eureka/
+
+    (confusion:
+     autoconfigure.exclude:
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration)
+
+8. product-service:
+    server-port: 8083
+    DATABASE_URL: jdbc:postgresql://ecom-postgres:5432/product_db
+    DATABASE_USERNAME: postgres
+    DATABASE_PASSWORD: root
+    EUREKA_URL: http://ecom-euraka:8761/eureka/
+
+9. user-service:
+    server-port: 8082
+    DATABASE_URL: jdbc:postgresql://ecom-postgres:5432/user_db
+    DATABASE_USERNAME: postgres
+    DATABASE_PASSWORD: root
+    EUREKA_URL: http://ecom-euraka:8761/eureka/
