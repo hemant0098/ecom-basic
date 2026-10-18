@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: discovery-server
-  clusterType: nodePort
+  type: nodePort
   ports:
   - port: 8761
     targetPort: 8761
