@@ -14,7 +14,7 @@ spec:
         app: product-service
       containers:
         - name: ecom-product-service
-          image: hemantdevgan/product-service:v1
+          image: hemantdevgan/product-service:v1.1
           ports:
             - name: product-service
               containerPort: 8083
