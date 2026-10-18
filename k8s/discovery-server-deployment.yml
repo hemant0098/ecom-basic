@@ -19,5 +19,5 @@ spec:
           image: hemantdevgan/discovery-server:v1.4
           ports:
           - name: discovery-server
-            contanerPort: 8761
+            containerPort: 8761
            
