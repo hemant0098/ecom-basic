@@ -4,8 +4,7 @@ metadata:
   name: user-service
   namespace: ecom-jenkins
 spec:
- selector:
-  labels:
+  selector:
     app: user-service
   ports:
   - port: 8082

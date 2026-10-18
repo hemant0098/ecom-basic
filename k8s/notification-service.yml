@@ -5,8 +5,7 @@ metadata:
   namespace: ecom-jenkins
 spec:
   selector:
-    labels:
-      app: notification-service
+    app: notification-service
   ports:
   - port: 8085
     targetPort: 8085

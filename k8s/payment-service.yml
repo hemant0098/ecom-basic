@@ -4,8 +4,7 @@ metadata:
   name: payment-service
   namespace: ecom-jenkins
 spec:
- selector:
-  labels:
+  selector:
     app: payment-service
   ports:
   - port: 8084

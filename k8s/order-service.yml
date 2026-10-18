@@ -4,8 +4,7 @@ metadata:
   name: order-service
   namespace: ecom-jenkins
 spec:
- selector:
-  labels:
+  selector:
     app: order-service
   ports:
   - port: 8086
