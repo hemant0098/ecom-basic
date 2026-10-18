@@ -9,9 +9,10 @@ spec:
     matchLabels:
       app: payment-service
   template:
-    spec:
+    metadata:
       labels:
         app: payment-service
+    spec:    
       containers:
         - name: ecom-payment-service
           image: hemantdevgan/payment-service:v1.4

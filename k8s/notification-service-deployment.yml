@@ -9,9 +9,10 @@ spec:
     matchLabels:
       app: notification-service
   template:
-    spec:
+    metadata:
       labels:
         app: notification-service
+    spec:
       containers:
         - name: ecom-notification-service
           image: hemantdevgan/notification-service:v1.4

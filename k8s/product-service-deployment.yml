@@ -9,9 +9,10 @@ spec:
     matchLabels:
       app: product-service
   template:
-    spec:
+    metadata:
       labels:
         app: product-service
+    spec:    
       containers:
         - name: ecom-product-service
           image: hemantdevgan/product-service:v1.4

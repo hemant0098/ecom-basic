@@ -9,9 +9,10 @@ spec:
     matchLabels:
       app: order-service
   template:
-    spec:
+    metadata:
       labels:
         app: order-service
+    spec:
       containers:
         - name: ecom-order-service
           image: hemantdevgan/order-service:v1.4
