@@ -15,7 +15,7 @@ spec:
     spec:    
       containers:
         - name: ecom-user-service
-          image: hemantdevgan/user-service:v1.4
+          image: hemantdevgan/user-service:v1.5
           ports:
           - containerPort: 8082
           env:

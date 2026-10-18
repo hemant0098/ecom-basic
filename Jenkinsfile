@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_USERNAME = 'hemantdevgan'
-        IMAGE_TAG = 'v1.4'
+        IMAGE_TAG = 'v1.5'
     }
 
     stages {
@@ -12,14 +12,14 @@ pipeline {
             steps {
                 echo 'Building images'
 
-                // sh 'docker build -f api-gateway/Dockerfile -t api-gateway:v1.0 .'
-                // sh 'docker build -f discovery-server/Dockerfile -t ecom-discovery-server:v1.0 .'
-                // sh 'docker build -f catalog-service/Dockerfile -t ecom-catalog-service:v1.0 .'
-                // sh 'docker build -f notification-service/Dockerfile -t ecom-notification-service:v1.0 .'
-                // sh 'docker build -f order-service/Dockerfile -t ecom-order-service:v1.0 .'
-                // sh 'docker build -f payment-service/Dockerfile -t ecom-payment-service:v1.0 .'
-                // sh 'docker build -f product-service/Dockerfile -t ecom-product-service:v1.0 .'
-                // sh 'docker build -f user-service/Dockerfile -t ecom-user-service:v1.0 .'
+                sh 'docker build -f api-gateway/Dockerfile -t api-gateway:v1.0 .'
+                sh 'docker build -f discovery-server/Dockerfile -t ecom-discovery-server:v1.0 .'
+                sh 'docker build -f catalog-service/Dockerfile -t ecom-catalog-service:v1.0 .'
+                sh 'docker build -f notification-service/Dockerfile -t ecom-notification-service:v1.0 .'
+                sh 'docker build -f order-service/Dockerfile -t ecom-order-service:v1.0 .'
+                sh 'docker build -f payment-service/Dockerfile -t ecom-payment-service:v1.0 .'
+                sh 'docker build -f product-service/Dockerfile -t ecom-product-service:v1.0 .'
+                sh 'docker build -f user-service/Dockerfile -t ecom-user-service:v1.0 .'
             }
         }
 
@@ -27,14 +27,14 @@ pipeline {
             steps {
                 echo 'Tagging images'
 
-                // sh 'docker tag api-gateway:v1.0 $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
-                // sh 'docker tag ecom-discovery-server:v1.0 $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
-                // sh 'docker tag ecom-catalog-service:v1.0 $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
-                // sh 'docker tag ecom-notification-service:v1.0 $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
-                // sh 'docker tag ecom-order-service:v1.0 $DOCKER_USERNAME/order-service:$IMAGE_TAG'
-                // sh 'docker tag ecom-payment-service:v1.0 $DOCKER_USERNAME/payment-service:$IMAGE_TAG'
-                // sh 'docker tag ecom-product-service:v1.0 $DOCKER_USERNAME/product-service:$IMAGE_TAG'
-                // sh 'docker tag ecom-user-service:v1.0 $DOCKER_USERNAME/user-service:$IMAGE_TAG'
+                sh 'docker tag api-gateway:v1.0 $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
+                sh 'docker tag ecom-discovery-server:v1.0 $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
+                sh 'docker tag ecom-catalog-service:v1.0 $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
+                sh 'docker tag ecom-notification-service:v1.0 $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
+                sh 'docker tag ecom-order-service:v1.0 $DOCKER_USERNAME/order-service:$IMAGE_TAG'
+                sh 'docker tag ecom-payment-service:v1.0 $DOCKER_USERNAME/payment-service:$IMAGE_TAG'
+                sh 'docker tag ecom-product-service:v1.0 $DOCKER_USERNAME/product-service:$IMAGE_TAG'
+                sh 'docker tag ecom-user-service:v1.0 $DOCKER_USERNAME/user-service:$IMAGE_TAG'
             }
         }
 
@@ -59,14 +59,14 @@ pipeline {
             steps {
                 echo 'Pushing images to Docker Hub'
 
-                // sh 'docker push $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/order-service:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/payment-service:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/product-service:$IMAGE_TAG'
-                // sh 'docker push $DOCKER_USERNAME/user-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/api-gateway:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/discovery-server:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/catalog-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/notification-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/order-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/payment-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/product-service:$IMAGE_TAG'
+                sh 'docker push $DOCKER_USERNAME/user-service:$IMAGE_TAG'
             }
         }
 
