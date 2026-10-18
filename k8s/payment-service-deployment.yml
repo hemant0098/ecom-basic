@@ -16,8 +16,7 @@ spec:
         - name: ecom-payment-service
           image: hemantdevgan/payment-service:v1.4
           ports:
-            - name: payment-service
-              containerPort: 8084
+          - containerPort: 8084
           env:
           - name: DATABASE_URL
             value: "jdbc:postgresql://ecom-postgres:5432/order_db"

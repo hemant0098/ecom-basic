@@ -22,8 +22,7 @@ spec:
         - name: ecom-catalog-service
           image: hemantdevgan/catalog-service:v1.4
           ports:
-            - name: catalog-service
-              containerPort: 8081
+          - containerPort: 8081
           env:
           - name: DATABASE_URL 
             value: "jdbc:postgresql://ecom-postgres:5432/catalog_db"

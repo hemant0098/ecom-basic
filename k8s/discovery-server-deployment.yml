@@ -18,6 +18,5 @@ spec:
         - name: ecom-discovery-server
           image: hemantdevgan/discovery-server:v1.4
           ports:
-          - name: discovery-server
-            containerPort: 8761
+          - containerPort: 8761
            

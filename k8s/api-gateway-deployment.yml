@@ -22,8 +22,7 @@ spec:
         - name: ecom-api-gateway
           image: hemantdevgan/api-gateway:v1.4
           ports:
-            - name: api-gateway
-              containerPort: 8087
+          - containerPort: 8087
           env:
             - name: EUREKA_URL
               value: "http://ecom-euraka:8761/eureka/"

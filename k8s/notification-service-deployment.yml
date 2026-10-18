@@ -16,8 +16,7 @@ spec:
         - name: ecom-notification-service
           image: hemantdevgan/notification-service:v1.4
           ports:
-            - name: notification-service
-              containerPort: 8085
+          - containerPort: 8085
           env:
           - name: KAFKA_BOOTSTRAP_SERVERS
             value: "ecom-kafka:9092"

@@ -16,8 +16,7 @@ spec:
         - name: ecom-user-service
           image: hemantdevgan/user-service:v1.4
           ports:
-            - name: user-service
-              containerPort: 8082
+          - containerPort: 8082
           env:
           - name: DATABASE_URL
             value: "jdbc:postgresql://ecom-postgres:5432/order_db"
