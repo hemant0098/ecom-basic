@@ -10,6 +10,6 @@ spec:
   - name: postgres
     port: 5432
     targetPort: 5432
-  clusterIP: none
+  clusterIP: None
   selector:
     app: ecom-postgres

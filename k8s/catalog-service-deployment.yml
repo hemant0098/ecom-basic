@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: ecom-catalog-service
-          image: hemantdevgan/catalog-service:v1.1
+          image: hemantdevgan/catalog-service:v1.4
           ports:
             - name: catalog-service
               containerPort: 8081

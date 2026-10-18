@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_USERNAME = 'hemantdevgan'
-        IMAGE_TAG = 'v1.3'
+        IMAGE_TAG = 'v1.4'
     }
 
     stages {

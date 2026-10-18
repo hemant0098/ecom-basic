@@ -14,7 +14,7 @@ spec:
         app: payment-service
       containers:
         - name: ecom-payment-service
-          image: hemantdevgan/payment-service:v1.1
+          image: hemantdevgan/payment-service:v1.4
           ports:
             - name: payment-service
               containerPort: 8084

@@ -14,7 +14,7 @@ spec:
         app: notification-service
       containers:
         - name: ecom-notification-service
-          image: hemantdevgan/notification-service:v1.1
+          image: hemantdevgan/notification-service:v1.4
           ports:
             - name: notification-service
               containerPort: 8085

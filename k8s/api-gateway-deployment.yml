@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: ecom-api-gateway
-          image: hemantdevgan/api-gateway:v1.1
+          image: hemantdevgan/api-gateway:v1.4
           ports:
             - name: api-gateway
               containerPort: 8087

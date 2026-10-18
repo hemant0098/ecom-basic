@@ -14,7 +14,7 @@ spec:
         app: order-service
       containers:
         - name: ecom-order-service
-          image: hemantdevgan/order-service:v1.1
+          image: hemantdevgan/order-service:v1.4
           ports:
             - name: order-service
               containerPort: 8084
