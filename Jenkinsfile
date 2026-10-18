@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_USERNAME = 'hemantdevgan'
-        IMAGE_TAG = 'v1.1'
+        IMAGE_TAG = 'v1.2'
     }
 
     stages {
@@ -74,8 +74,8 @@ pipeline {
             steps {
                 echo 'Creating database resources'
 
-                sh 'kubectl apply -f k8s/postgres-service.yml'
                 sh 'kubectl apply -f k8s/postgres-statefulset.yml'
+                sh 'kubectl apply -f k8s/postgres-service.yml'
             }
         }
 
