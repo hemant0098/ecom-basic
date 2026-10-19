@@ -35,7 +35,7 @@ environments:
 2. api-gateway:
     server-port: 8087 
     CONFIG_SERVER_URL: http://ecom-config-server:8888 // optional
-    EUREKA_URL: http://ecom-euraka:8761/eureka/
+    EUREKA_URL: http://discovery-server:8761/eureka/
 
 3. discovery-service:
     server-port: 8761
@@ -49,7 +49,7 @@ environments:
 5. notification-service:
     server-port: 8085
     KAFKA_BOOTSTRAP_SERVERS: ecom-kafka:9092
-    EUREKA_URL: http://ecom-euraka:8761/eureka/
+    EUREKA_URL: http://discovery-server:8761/eureka/
 
 6. order-service:
     server-port: 8086
@@ -59,7 +59,7 @@ environments:
 
 7. payment-service:
     server-port: 8084
-    EUREKA_URL: http://ecom-euraka:8761/eureka/
+    EUREKA_URL: http://discovery-server:8761/eureka/
 
     (confusion:
      autoconfigure.exclude:
@@ -71,11 +71,11 @@ environments:
     DATABASE_URL: jdbc:postgresql://ecom-postgres:5432/product_db
     DATABASE_USERNAME: postgres
     DATABASE_PASSWORD: root
-    EUREKA_URL: http://ecom-euraka:8761/eureka/
+    EUREKA_URL: http://discovery-server:8761/eureka/
 
 9. user-service:
     server-port: 8082
     DATABASE_URL: jdbc:postgresql://ecom-postgres:5432/user_db
     DATABASE_USERNAME: postgres
     DATABASE_PASSWORD: root
-    EUREKA_URL: http://ecom-euraka:8761/eureka/
+    EUREKA_URL: http://discovery-server:8761/eureka/

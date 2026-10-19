@@ -26,4 +26,4 @@ spec:
           - name: DATABASE_PASSWORD
             value: "root" 
           - name: EUREKA_URL
-            value: "http://ecom-euraka:8761/eureka/"
+            value: "http://discovery-server:8761/eureka/"

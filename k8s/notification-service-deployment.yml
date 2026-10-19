@@ -22,4 +22,4 @@ spec:
           - name: KAFKA_BOOTSTRAP_SERVERS
             value: "ecom-kafka:9092"
           - name: EUREKA_URL
-            value: "http://ecom-euraka:8761/eureka/" 
+            value: "http://discovery-server:8761/eureka/" 
