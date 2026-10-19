@@ -20,7 +20,7 @@ spec:
           - containerPort: 8082
           env:
           - name: DATABASE_URL
-            value: "jdbc:postgresql://ecom-postgres:5432/user_db"
+            value: "jdbc:postgresql://ecom-service:5432/user_db"
           - name: DATABASE_USERNAME
             value: "postgres" 
           - name: DATABASE_PASSWORD

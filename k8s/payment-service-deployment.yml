@@ -20,8 +20,10 @@ spec:
           - containerPort: 8084
           env:
           - name: DATABASE_URL
-            value: "jdbc:postgresql://ecom-postgres:5432/order_db"
+            value: "jdbc:postgresql://ecom-service:5432/order_db"
           - name: DATABASE_USERNAME
             value: "postgres" 
           - name: DATABASE_PASSWORD
             value: "root" 
+          - name: EUREKA_URL
+            value: "http://discovery-server:8761/eureka/"
